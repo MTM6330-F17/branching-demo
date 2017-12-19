@@ -1,9 +1,19 @@
 // Import bootstrap and override variables to match
-// our custom design pallet.
+// our custom design pallet overrides.
 @import 'custom';
-@import 'path-to-bootstrap';
+@import '../node_modules/bootstrap/scss/bootstrap';
 
 // Our common styles
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
+body {
+  background: $hamburger-bg;
+  padding: 40px;
+}
 
 // Import our page specific styles
+@import 'hamburger';
