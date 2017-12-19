@@ -22,21 +22,21 @@ $half-size: ($full-size/2);
   padding: 20px 16px;
   height: $full-size;
   width: $full-size;
+
+  span {
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 36px;
+    border-radius: 2px;
+    background: #fff;
+  }
 }
 
 .burger-inner {
   position: relative;
   height: 28px;
   width: 36px;
-}
-
-.burger-main span {
-  position: absolute;
-  display: block;
-  height: 4px;
-  width: 36px;
-  border-radius: 2px;
-  background: #fff;
 }
 
 .top {
@@ -72,23 +72,31 @@ $half-size: ($full-size/2);
   stroke-linejoin: round;
 }
 
-.hamburger.open .path {
-  animation: dash-in 0.6s linear normal;
-  animation-fill-mode: forwards;
+.hamburger.open {
+  & .path {
+    animation: dash-in 0.6s linear normal;
+    animation-fill-mode: forwards;
+  }
+  & .top {
+    animation: close-top-out 0.6s linear normal;
+    animation-fill-mode: forwards;
+  }
+  & .bot {
+    animation: close-bot-out 0.6s linear normal;
+    animation-fill-mode: forwards;
+  }
+  & .mid {
+    animation: burger-fill-out 0.6s linear normal;
+    animation-fill-mode: forwards;
+  }
+  & .animate-path {
+    animation: circle-in 0.6s linear normal;
+    animation-fill-mode: forwards;
+  }
 }
 
 .hamburger.closed .path {
   animation: dash-out 0.6s linear normal;
-  animation-fill-mode: forwards;
-}
-
-.hamburger.open .top {
-  animation: close-top-out 0.6s linear normal;
-  animation-fill-mode: forwards;
-}
-
-.hamburger.open .bot {
-  animation: close-bot-out 0.6s linear normal;
   animation-fill-mode: forwards;
 }
 
@@ -102,13 +110,13 @@ $half-size: ($full-size/2);
   animation-fill-mode: forwards;
 }
 
-.hamburger.open .mid {
-  animation: burger-fill-out 0.6s linear normal;
-  animation-fill-mode: forwards;
-}
-
 .hamburger.closed .mid {
   animation: burger-fill-in 0.6s linear normal;
+}
+
+.hamburger.closed .animate-path {
+  animation: circle-out 0.6s linear normal;
+  animation-fill-mode: forwards;
 }
 
 .path-burger {
@@ -138,27 +146,18 @@ $half-size: ($full-size/2);
   transform: rotate(0deg);
   -webkit-transform-origin: 100% 0;
   transform-origin: 100% 0;
+  &:before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: $half-size;
+    margin: 0 4px 0 0;
+    background: #fff;
+  }
 }
 
-.path-rotation:before {
-  content: '';
-  display: block;
-  width: 30px;
-  height: $half-size;
-  margin: 0 4px 0 0;
-  background: #fff;
-}
 
-.hamburger.open .animate-path {
-  animation: circle-in 0.6s linear normal;
-  animation-fill-mode: forwards;
-}
-
-.hamburger.closed .animate-path {
-  animation: circle-out 0.6s linear normal;
-  animation-fill-mode: forwards;
-}
-
+/* Define keyframes */
 @-webkit-keyframes dash-in {
   0% {
     stroke-dashoffset: 240;
