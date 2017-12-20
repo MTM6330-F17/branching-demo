@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <title>Hamburger Open Animation</title>
+  <link rel="stylesheet" href="css/min/main.css">
+</head>
+
+<body>
+  <div class="hamburger closed">
+  <div class="burger-main">
+    <div class="burger-inner">
+      <span class="top"></span>
+      <span class="mid"></span>
+      <span class="bot"></span>
+    </div>
+  </div>
+
+  <div class="svg-main">
+    <svg class="svg-circle">
+      <path
+        class="path"
+        fill="none"
+        stroke="#fff"
+        stroke-miterlimit="10"
+        stroke-width="4"
+        d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2"/>
+    </svg>
+  </div>
+  <div class="path-burger">
+    <div class="animate-path">
+      <div class="path-rotation"></div>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script  src="js/hamburger.js"></script>
+</body>
+</html>
